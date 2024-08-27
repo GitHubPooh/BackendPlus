@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const db = require("../config/db");
 
 const mysql = require("mysql2");
@@ -30,5 +31,20 @@ exports.login = (username, password) => {
     //   if (err) return reject(err);
     //   resolve(results);
     // });
+=======
+const db = require('../config/db');
+
+
+
+exports.login = (username, password) => {
+  return new Promise((resolve, reject) => {
+
+    const sql = 'SELECT * FROM users WHERE name = ? AND password = ?';
+    db.query(sql, [username, password], (err, results) => {
+      if (err) return reject(err);
+      resolve(results);
+    });
+
+>>>>>>> 829c441f83ac041ad15eb6d843481ccd16bd007d
   });
 };
